@@ -14,6 +14,8 @@ if [[ $INPUT == "man" ]]; then
   man nmap
 elif [[ $INPUT =~ -[a-zA-Z0-9]+ ]]; then
   nmap $INPUT -oG nmap_scan.txt $IP
+elif [[ $INPUT == --help ]]; then
+  nmap --help
 else
   echo "your options are probably incorrect. please type man to see nmap's manual"
 fi
