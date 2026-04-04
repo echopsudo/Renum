@@ -9,6 +9,7 @@ IP_PROMPT() {
 	read -p "Enter the IP you want to scan: " IP
 	if [[ $IP =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
 		echo $IP > ip.txt
+		exit 1
 	else
 		echo "Invalid IP!"
  	fi
@@ -31,48 +32,8 @@ THOROUGH() {
 	./thorough_scan
 }
 
-#make a checker to check if user downloaded all dependencies
+SCAN_OPTIONS() {
 
-if [[ $1 == "--help" || $1 == "-h" || $1 == "help" ]]; then
-	echo "Help Options"
-	echo " "
-	echo "		Modes		"
-	echo "F (default) - fast scan"
-	echo "N - normal scan"
-	echo "T - thorough scan"
-	echo "usage example - ./renum.sh N"
-	echo "alternatively, you can just do ./renum.sh IP to do recon on an IP/web ex. ./renum.sh 127.0.0.1"
-	echo "--help or -h or help to print help"
-	exit 1
-elif [[ $1 == "" ]]; then
-	FAST
-	exit 1
-elif [[ $1 == "F" || $1 == "f" ]]; then
-	IP_PROMPT
-	FAST
-	exit 1
-elif [[ $1 == "N" || $1 == "n" ]]; then
-	IP_PROMPT
-	NORMAL
-	exit 1
-elif [[ $1 == "T" || $1 == "t" ]]; then
-	IP_PROMPT
-	THOROUGH
-	exit 1
-elif [[ $1 =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ || $1 =~ ^[A-Za-z]+\.[A-Za-z]+$ ]]; then
-	echo $1 > ip.txt
-	FAST
-	exit 1
-else
-	echo "use --help"
-	exit 1
-fi
-
-
-echo "Enter the target IP:"
-read IP
-if [[ $IP =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
-	echo $IP > ip.txt
 	echo "Which type of scan do you want to run?"
 	echo "F - fast scan"
 	echo "N - normal scan"
@@ -88,6 +49,52 @@ if [[ $IP =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
 		THOROUGH
 		exit 1
 	fi
+}
+
+#make a checker to check if user downloaded all dependencies
+
+if [[ $1 == "--help" || $1 == "-h" || $1 == "help" ]]; then
+	echo "Help Options"
+	echo " "
+	echo "		Modes		"
+	echo "-F (default) - fast scan"
+	echo "-N - normal scan"
+	echo "-T - thorough scan"
+	echo "usage example - ./renum.sh N"
+	echo "alternatively, you can just do ./renum.sh IP to do recon on an IP/web ex. ./renum.sh 127.0.0.1"
+	echo "--help or -h or help to print help"
+	exit 1
+elif [[ $1 == "" ]]; then
+	echo " "
+elif [[ $1 == "-F" ]]; then
+	IP_PROMPT
+	FAST
+	exit 1
+elif [[ $1 == "-N" ]]; then
+	IP_PROMPT
+	NORMAL
+	exit 1
+elif [[ $1 == "-T" ]]; then
+	IP_PROMPT
+	THOROUGH
+	exit 1
+elif [[ $1 =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ || $1 =~ ^[A-Za-z]+\.[A-Za-z]+$ ]]; then
+	echo $1 > ip.txt
+	cat ip.txt
+	SCAN_OPTIONS
+	exit 1
+else
+	echo "use --help"
+	exit 1
+fi
+
+
+
+echo "Enter the target IP:"
+read IP
+if [[ $IP =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
+		echo $IP > ip.txt
+		SCAN_OPTIONS
 else
 	echo "invalid IP!"
 	exit 1
