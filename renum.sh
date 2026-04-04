@@ -2,17 +2,20 @@
 
 #REMIND THAT ./renum.sh N 127.0.0.1 DOESNT WORK
 
-echo "Renum" #change to ascii art that is created by me
 
 
+#change to ascii art banner
+echo "Renum"
 
+
+#Variables
 
 HEAD=$(echo "Running script")
 
 
 
 
-
+#Defining commands
 
 HELP() {
 	echo "Help Options"
@@ -30,9 +33,9 @@ IP_PROMPT() {
 	read -p "Enter the IP you want to scan: " IP
 	if [[ $IP =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
 		echo $IP > ip.txt
-		exit 1
 	else
 		echo "Invalid IP!"
+		exit 1
  	fi
 }
 
@@ -78,7 +81,7 @@ SCAN_OPTIONS() {
 
 
 
-#make a checker to check if user downloaded all dependencies
+#Main script; flag set
 
 if [[ $1 == "--help" || $1 == "-h" || $1 == "help" ]]; then
 	HELP
@@ -111,14 +114,7 @@ fi
 
 
 
+#if no flags are set
 
-
-echo "Enter the target IP:"
-read IP
-if [[ $IP =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
-		echo $IP > ip.txt
-		SCAN_OPTIONS
-else
-	echo "invalid IP!"
-	exit 1
-fi
+IP_PROMPT
+SCAN_OPTIONS
