@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#THIS IS SPAGHETTI CODE, ILL HAVE TO RESTRUCTURE AND MAKE IT MORE REUSABLE
 #REMIND THAT TO FIX ./Renum.sh N 127.0.0.1 DOESNT WORK
 
 echo "Renum" #change to ascii art that is created by me
