@@ -1,7 +1,6 @@
 #!/bin/bash
 
-#THIS IS SPAGHETTI CODE, ILL HAVE TO RESTRUCTURE AND MAKE IT MORE REUSABLE
-#REMIND THAT TO FIX ./Renum.sh N 127.0.0.1 DOESNT WORK
+#REMIND THAT ./renum.sh N 127.0.0.1 DOESNT WORK
 
 echo "Renum" #change to ascii art that is created by me
 
@@ -41,8 +40,8 @@ if [[ $1 == "--help" || $1 == "-h" || $1 == "help" ]]; then
 	echo "F (default) - fast scan"
 	echo "N - normal scan"
 	echo "T - thorough scan"
-	echo "usage example - ./Renum.sh N"
-	echo "alternatively, you can just do ./Renum.sh IP to do recon on an IP/web ex. ./Renum.sh 127.0.0.1"
+	echo "usage example - ./renum.sh N"
+	echo "alternatively, you can just do ./renum.sh IP to do recon on an IP/web ex. ./renum.sh 127.0.0.1"
 	echo "--help or -h or help to print help"
 	exit 1
 elif [[ $1 == "" ]]; then
