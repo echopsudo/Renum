@@ -17,13 +17,17 @@ HEAD=$(echo "Running script")
 
 #Defining commands
 
+SCAN_TYPES() {
+	echo "-F (default) - fast scan"
+	echo "-N - normal scan"
+	echo "-T - thorough scan"
+}
+
 HELP() {
 	echo "Help Options"
 	echo " "
 	echo "		Modes		"
-	echo "-F (default) - fast scan"
-	echo "-N - normal scan"
-	echo "-T - thorough scan"
+	SCAN_TYPES
 	echo "usage example - ./renum.sh N"
 	echo "alternatively, you can just do ./renum.sh IP to do recon on an IP/web ex. ./renum.sh 127.0.0.1"
 	echo "--help or -h or help to print help"
@@ -60,9 +64,7 @@ THOROUGH() {
 SCAN_OPTIONS() {
 
 	echo "Which type of scan do you want to run?"
-	echo "F - fast scan"
-	echo "N - normal scan"
-	echo "T - thorough scan"
+	SCAN_TYPES
 	read SCAN_CHOICE
 	if [[ $SCAN_CHOICE == F || $1 == F ]]; then
 		FAST
