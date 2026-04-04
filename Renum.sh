@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#REMIND THAT TO FIX ./Renum.sh N 127.0.0.1 DOESNT WORK
+
 echo "Renum" #change to ascii art that is created by me
 
 HEAD=$(echo "Running script")
