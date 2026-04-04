@@ -1,4 +1,4 @@
-# Renum
+# Renum Project (VERY WIP)
 
 # ⚠️ This script is intended for educational purposes and authorized testing environments ONLY! ⚠️ #
 
