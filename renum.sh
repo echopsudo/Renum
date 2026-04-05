@@ -5,7 +5,7 @@
 
 
 #change to ascii art banner
-echo "Renum"
+echo "RENUM"
 
 
 #Variables
