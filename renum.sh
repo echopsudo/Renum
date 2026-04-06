@@ -15,6 +15,7 @@ HEAD=$(echo "Running script")
 
 
 
+
 #Defining commands
 
 SCAN_TYPES() {
