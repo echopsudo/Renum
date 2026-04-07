@@ -8,7 +8,7 @@ if [[ $MODE == fast ]]; then
 elif [[ $MODE == normal ]]; then
         nmap -p- -oG scans/normal_scan.txt $IP
 elif [[ $MODE == thorough ]]; then
-        nmap -sV -p- -oG scans/thorough.txt $IP
+        nmap -sV -p- -oG scans/thorough_scan.txt $IP
 else
         echo "no modes provided, quitting!"
         quit 1
