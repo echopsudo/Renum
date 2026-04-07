@@ -1,7 +1,7 @@
 #!/bin/bash
 
 IP=$(cat info/ip.txt)
-MODE=$(cat info/mode.txt)
+MODE=$(cat info/modes.txt)
 
 if [[ $MODE == fast ]]; then
         nmap -oG scans/fast_scan.txt $IP
