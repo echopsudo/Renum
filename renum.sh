@@ -53,21 +53,24 @@ IP_PROMPT() {
 }
 
 FAST() {
+	echo "fast" > info/modes.txt
 	echo $HEAD
 	echo "running fast scan!"
-	./fast_scan.sh
+	./scan.sh
 }
 
 NORMAL() {
+	echo "normal" > info/modes.txt
 	echo $HEAD
 	echo "running normal scan!"
 	./scan.sh
 }
 
 THOROUGH() {
+	echo "thorough" > info/modes.txt
 	echo $HEAD
 	echo "running thorough scan!"
-	./thorough_scan
+	./scan
 }
 
 SCAN_OPTIONS() {
