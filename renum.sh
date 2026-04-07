@@ -12,7 +12,9 @@ echo "|| \   ||    ||    \ || ||  || ||      ||"
 echo "||  \  ||=== ||     \||  \==/  ||      ||"
 echo "                                         "
 echo "                                         "
-echo "By echopsudo, written in Bash shell."
+echo "By echopsudo, written in Bash shell.     "
+echo "                                         "
+echo "                                         "
 
 
 #Variables
