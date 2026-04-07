@@ -2,10 +2,17 @@
 
 #REMIND THAT ./renum.sh N 127.0.0.1 DOESNT WORK
 
-
-
-#change to ascii art banner
-echo "Renum"
+echo "                                         "
+echo "                                         "
+echo "||==|| ||=== ||\     || ||  || ||\    /||"
+echo "||  || ||    || \    || ||  || || \  / ||"
+echo "||==|| ||=== ||  \   || ||  || ||  \/  ||"
+echo "||\    ||    ||   \  || ||  || ||      ||"
+echo "|| \   ||    ||    \ || ||  || ||      ||"
+echo "||  \  ||=== ||     \||  \==/  ||      ||"
+echo "                                         "
+echo "                                         "
+echo "By echopsudo, written in Bash shell."
 
 
 #Variables
