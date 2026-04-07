@@ -5,13 +5,12 @@
 
 
 #change to ascii art banner
-echo "RENUM"
+echo "Renum"
 
 
 #Variables
 
 HEAD=$(echo "Running script")
-
 
 
 
@@ -37,7 +36,7 @@ HELP() {
 IP_PROMPT() {
 	read -p "Enter the IP you want to scan: " IP
 	if [[ $IP =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
-		echo $IP > ip.txt
+		echo $IP > info/ip.txt
 	else
 		echo "Invalid IP!"
 		exit 1
@@ -67,13 +66,13 @@ SCAN_OPTIONS() {
 	echo "Which type of scan do you want to run?"
 	SCAN_TYPES
 	read SCAN_CHOICE
-	if [[ $SCAN_CHOICE == F || $1 == F ]]; then
+	if [[ $SCAN_CHOICE == F || $SCAN_CHOICE == -F ]]; then
 		FAST
 		exit 1
-	elif [[ $SCAN_CHOICE == N || $1 == N ]]; then
+	elif [[ $SCAN_CHOICE == N || $SCAN_CHOICE == -N ]]; then
 		NORMAL
 		exit 1
-	elif [[ $SCAN_CHOICE == T || $1 == T ]]; then
+	elif [[ $SCAN_CHOICE == T || $SCAN_CHOICE == -T ]]; then
 		THOROUGH
 		exit 1
 	fi
@@ -104,12 +103,11 @@ elif [[ $1 == "-T" ]]; then
 	THOROUGH
 	exit 1
 elif [[ $1 =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ || $1 =~ ^[A-Za-z]+\.[A-Za-z]+$ ]]; then
-	echo $1 > ip.txt
-	cat ip.txt
+	echo $1 > info/ip.txt
 	SCAN_OPTIONS
 	exit 1
 else
-	echo "use --help"
+	echo "Invalid options, please use --help"
 	exit 1
 fi
 
