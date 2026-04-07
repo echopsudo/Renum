@@ -16,8 +16,10 @@ fi
 
 wait
 
-HTTP_PORTS=$(grep -oE "[0-9]+/open/[^,]*http" scans/fast_scan.txt | cut -d/ -f1 )
-SMB_PORTS=$(grep -oE "[0-9]+/open/[^,]*microsoft-ds" scans/fast_scan.txt | cut -d/ -f1 )
+HTTP_PORTS=$(grep -oE "[0-9]+/open/[^,]*http" scans/scan.txt | cut -d/ -f1 )
+SMB_PORTS=$(grep -oE "[0-9]+/open/[^,]*microsoft-ds" scans/scan.txt | cut -d/ -f1 )
+FTP_PORTS=$(grep -oE "[0-9]+/open/[^,]*ftp" scans/scan.txt | cut -d/ -f1 )
+SSH_PORTS=$(grep -oE "[0-9]+/open/[^,]*ssh" scans/scan.txt | cut -d/ -f1 )
 
 echo $HTTP_PORTS > info/http_ports.txt
 echo $SMB_PORTS > info/smb_ports.txt
