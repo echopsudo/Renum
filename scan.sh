@@ -1,26 +1,15 @@
-
 #!/bin/bash
 
 IP=$(cat info/ip.txt)
+MODE=$(cat info/mode.txt)
 
-nmap -oG scans/normal_scan.txt $IP
-
-HTTP_PORTS=$(grep -oE "[0-9]+/open/[^,]*http" scans/normal_scan.txt | cut -d/ -f1)
-SMB_PORTS=$(grep -oE "[0-9]+/open/[^,]*microsoft-ds" scans/normal_scan.txt | cut -d/ -f1)
-
-
-if [[ $HTTP_PORTS == "" ]]; then
-	echo " "
+if [[ $MODE == fast ]]; then
+        nmap -oG scans/fast_scan.txt $IP
+elif [[ $MODE == normal ]]; then
+        nmap -p- -oG scans/normal_scan.txt $IP
+elif [[ $MODE == thorough ]]; then
+        nmap -sV -p- -oG scans/thorough.txt $IP
 else
-	echo "Found HTTP(s) ports: $HTTP_PORTS"
-	./modules/http_normal.sh
-	quit 1
-fi
-
-if [[ $SMB_PORTS == "" ]]; then
-	echo " "
-else
-	echo "Found SMB ports: $SMB_PORTS"
-	./modules/smb_normal.sh
-	quit 1
+        echo "no modes provided, quitting!"
+        quit 1
 fi
