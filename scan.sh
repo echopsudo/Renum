@@ -27,8 +27,3 @@ echo $SMB_PORTS > info/smb_ports.txt
 echo $FTP_PORTS > info/ftp_ports.txt
 echo $SSH_PORTS > info/ssh_ports.txt
 
-
-cat info/http_ports.txt
-cat info/smb_ports.txt
-cat info/ftp_ports.txt
-cat info/ssh_ports.txt
