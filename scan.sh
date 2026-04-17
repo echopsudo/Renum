@@ -3,6 +3,10 @@
 IP=$(cat info/ip.txt)
 MODE=$(cat info/modes.txt)
 
+HTTP_SCAN() {
+        gobuster dir http://$IP/$DIR $WORDLIST
+}
+
 if [[ $MODE == fast ]]; then
         nmap -oG info/scan.txt $IP
 elif [[ $MODE == normal ]]; then
